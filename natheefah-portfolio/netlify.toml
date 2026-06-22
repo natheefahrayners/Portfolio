@@ -1,3 +1,8 @@
+[build]
+  base = "natheefah-portfolio"
+  command = "npm run build"
+  publish = "natheefah-portfolio/build"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
