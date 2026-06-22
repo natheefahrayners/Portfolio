@@ -1,6 +1,6 @@
 import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Download, ArrowRight, User } from 'lucide-react';
+import { Download, ArrowRight } from 'lucide-react';
 import DinoGame from '../components/DinoGame';
 
 export default function Home() {

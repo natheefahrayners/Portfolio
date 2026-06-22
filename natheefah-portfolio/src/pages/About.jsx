@@ -1,4 +1,3 @@
-import { User } from 'lucide-react';
 import { useReveal } from '../hooks/useReveal';
 
 export default function About() {
