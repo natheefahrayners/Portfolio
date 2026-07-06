@@ -1183,4 +1183,245 @@ body {
 
   /* Stack contact cards full-width on small screens, plenty of room for email */
   .contact-links { grid-template-columns: 1fr; }
+
+  .projects { padding: 5rem 1.5rem; }
+  .projects-grid { grid-template-columns: 1fr; }
+}
+
+  /* ── PROJECTS ── */
+.projects {
+  min-height: 100vh;
+  padding: 6rem;
+  background: var(--vanilla);
+}
+
+.projects-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.projects-subhead {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-top: 0.8rem;
+  line-height: 1.7;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.project-card {
+  background: var(--vanilla-warm);
+  border: 1px solid var(--vanilla-deep);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  transition: box-shadow 0.4s ease, transform 0.4s ease, border-color 0.4s ease;
+}
+
+.project-card:hover {
+  box-shadow: 0 20px 50px rgba(154, 0, 2, 0.18);
+  transform: translateY(-5px);
+  border-color: rgba(154, 0, 2, 0.4);
+}
+
+.project-img-wrap {
+  position: relative;
+  height: 210px;
+  overflow: hidden;
+  background: var(--vanilla-deep);
+  flex-shrink: 0;
+}
+
+.project-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-img {
+  transform: scale(1.04);
+}
+
+.project-img-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--vanilla-deep) 0%, var(--vanilla-warm) 100%);
+}
+
+.project-placeholder-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: var(--cola);
+  opacity: 0.12;
+  line-height: 1;
+}
+
+.project-placeholder-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-light);
+  letter-spacing: 0.08em;
+}
+
+.project-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(107, 0, 1, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.project-card:hover .project-img-overlay {
+  opacity: 1;
+}
+
+.project-live-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.4rem;
+  background: var(--vanilla);
+  color: var(--cola);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.project-live-btn:hover {
+  background: var(--cola);
+  color: var(--vanilla);
+  transform: scale(1.04);
+}
+
+.project-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  flex: 1;
+}
+
+.project-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+}
+
+.project-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--cola);
+  opacity: 0.18;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  justify-content: flex-end;
+}
+
+.project-tag {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cola);
+  background: rgba(154, 0, 2, 0.07);
+  padding: 0.2rem 0.6rem;
+}
+
+.project-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.25;
+}
+
+.project-desc {
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: var(--text-light);
+  flex: 1;
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+  padding-top: 0.8rem;
+  border-top: 1px solid var(--vanilla-deep);
+  margin-top: auto;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-mid);
+  text-decoration: none;
+  transition: color 0.25s ease;
+  position: relative;
+}
+
+.project-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--cola);
+  transition: width 0.25s ease;
+}
+
+.project-link:hover { 
+  color: var(--cola); 
+}
+
+.project-link:hover::after { 
+  width: 100%; 
+}
+
+.project-link-live { 
+  color: var(--cola); 
+}
+
+/* ── Hide custom cursor on touch/mobile ── */
+@media (pointer: coarse) {
+  body { 
+    cursor: auto; 
+  }
+
+  .cursor, .cursor-ring, .torch-overlay { 
+    display: none !important; 
+  }
 }
