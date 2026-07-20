@@ -7,22 +7,27 @@ export function useReveal() {
     const el = ref.current;
     if (!el) return;
 
-    // Small timeout ensures the element is painted before we observe,
-    // so elements already in the viewport still get triggered correctly.
     const timer = setTimeout(() => {
+      if (!el) return;
+
       const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            el.classList.add('visible');
-            observer.disconnect(); // only need to fire once
-          }
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
         },
         { threshold: 0, rootMargin: '0px 0px -20px 0px' }
       );
+
       observer.observe(el);
     }, 50);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+    };
   }, []);
 
   return ref;
